@@ -24,12 +24,10 @@ public class QuoteControllerTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    public void shouldReturnQuote() throws Exception{
+    public void shouldReturnQuote() throws Exception {
         mockMvc.perform(get("/quote"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isNotEmpty());
     }
-
-
 }

@@ -18,19 +18,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(WordController.class)
 public class WordControllerTest {
 
-
     @Autowired
     private MockMvc mockMvc;
 
     private ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    public void shouldReturnQuote() throws Exception{
+    public void shouldReturnQuote() throws Exception {
         mockMvc.perform(get("/word"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isNotEmpty());
     }
-
-    
 }

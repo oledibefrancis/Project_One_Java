@@ -1,4 +1,5 @@
 package com.company.summativeProjectOne.controllers;
+
 import com.company.summativeProjectOne.models.Answer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
@@ -19,27 +20,23 @@ public class MagicControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-
     private ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    public void shouldReturnAnswer() throws Exception{
-        Answer answer = new Answer(1,"What is your name", "");
+    public void shouldReturnAnswer() throws Exception {
+        Answer answer = new Answer(1, "What is your name", "");
 
         String inputJson = mapper.writeValueAsString(answer);
 
 
-
         mockMvc.perform(post("/magic")
-                .content(inputJson)
-                .contentType(MediaType.APPLICATION_JSON)
+                        .content(inputJson)
+                        .contentType(MediaType.APPLICATION_JSON)
 
-        )
+                )
                 .andExpect(status().isCreated())
                 .andDo(print())
                 .andExpect(jsonPath("$").isNotEmpty());
 
     }
-
-
 }

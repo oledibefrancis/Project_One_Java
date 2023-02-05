@@ -32,8 +32,8 @@ public class WordController {
             new Definition(13, "const", "A reserved Java keyword not used by current versions of the Java programming language"),
             new Definition(14, "delegation", "An act whereby one principal authorizes another principal to use its identity or privileges with some restrictions"),
             new Definition(15, "distributed", "Running in more than one address space")
-
     ));
+
     @RequestMapping(value = "/word", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public Definition getDefinition() {
