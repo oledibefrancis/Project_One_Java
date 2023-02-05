@@ -28,7 +28,7 @@ public class QuoteControllerTest {
         mockMvc.perform(get("/quote"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0]").isNotEmpty());
+                .andExpect(jsonPath("$").isNotEmpty());
     }
 
 
